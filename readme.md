@@ -1,6 +1,6 @@
 # Communicate-Data-Findings
 ## by (Amit Kumar Singh)
-### Udacity's Data Analyst Nanodegree - Project 5
+### Udacity's Data Analyst Nanodegree
 
 ## Dataset
 >Bike, like other bike share systems, consists of a fleet of specially designed, sturdy and durable bikes that are locked into a netw
