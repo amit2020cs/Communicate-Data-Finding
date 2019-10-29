@@ -19,6 +19,6 @@ Female whcich belong to age 25-40 who travel for 0-1000sec
 Other gender which belong to age 25-40 whoc travel for 0-1000sec   
 
 
-##Summary     
+## Summary     
 
 Subscribers are primarily daily commuters, having short trips to and from work, who rent a bike on weekdays at 8-9am and 5-6pm. Age is also a factor within user type. Subscribers who fall in the age group between 26-35 years old are the most common age group to use the bike sharing system. The 26-35 years old also lead the spike which occurs across all age groups in October. Subscribers who fall in the 36-45 year old age group are the next most common age group to use the bike sharing system, and follow a similar trend at the 26-35 year olds.
