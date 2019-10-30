@@ -3,7 +3,7 @@
 ### Udacity's Data Analyst Nanodegree
 
 ## Dataset
->Bike, like other bike share systems, consists of a fleet of specially designed, sturdy and durable bikes that are locked into a netw
+Bike, like other bike share systems, consists of a fleet of specially designed, sturdy and durable bikes that are locked into a netw
 Ford Goork of docking stations throughout the city. The bikes can be unlocked from one station and returned to any other station in the system, making them ideal for one-way trips. People use bike share to commute to work or school, run errands, get to appointments or social engagements and more. It's a fun, convenient and affordable way to get around.
 
 
