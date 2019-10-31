@@ -13116,7 +13116,7 @@ div#notebook {
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Communicate-Data-Finding">Communicate Data Finding<a class="anchor-link" href="#Communicate-Data-Finding">&#182;</a></h1><h2 id="by-(Amit-Kumar-Singh)">by (Amit Kumar Singh)<a class="anchor-link" href="#by-(Amit-Kumar-Singh)">&#182;</a></h2><h1 id="Introduction">Introduction<a class="anchor-link" href="#Introduction">&#182;</a></h1><p>Ford GoBike is the Bay Area's bike share system. Bay Area Bike Share was introduced in 2013 as a pilot program for the region, with 700 bikes and 70 stations across San Francisco and San Jose. Once expansion is complete, Ford GoBike will grow to 7,000 bikes across San Francisco, the East Bay and San Jose.</p>
+<h1 id="Communicate-Data-Finding-Visualisation">Communicate Data Finding Visualisation<a class="anchor-link" href="#Communicate-Data-Finding-Visualisation">&#182;</a></h1><h2 id="by-(Amit-Kumar-Singh)">by (Amit Kumar Singh)<a class="anchor-link" href="#by-(Amit-Kumar-Singh)">&#182;</a></h2><h1 id="Introduction">Introduction<a class="anchor-link" href="#Introduction">&#182;</a></h1><p>Ford GoBike is the Bay Area's bike share system. Bay Area Bike Share was introduced in 2013 as a pilot program for the region, with 700 bikes and 70 stations across San Francisco and San Jose. Once expansion is complete, Ford GoBike will grow to 7,000 bikes across San Francisco, the East Bay and San Jose.</p>
 
 </div>
 </div>
@@ -13153,7 +13153,8 @@ div#notebook {
 <div class="prompt input_prompt">In&nbsp;[2]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="o">!</span>wget <span class="s1">&#39;https://cf-template-inframind2.s3.amazonaws.com/fordgo_master_clean.csv&#39;</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1">## this dataset is downloaded from fordgobike-server</span>
+<span class="o">!</span>wget <span class="s1">&#39;https://s3.amazonaws.com/baywheels-data/2017-fordgobike-tripdata.csv&#39;</span>
 </pre></div>
 
     </div>
@@ -13170,16 +13171,16 @@ div#notebook {
 
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>--2019-10-30 17:53:28--  https://cf-template-inframind2.s3.amazonaws.com/fordgo_master_clean.csv
-Resolving cf-template-inframind2.s3.amazonaws.com (cf-template-inframind2.s3.amazonaws.com)... 52.217.37.12
-Connecting to cf-template-inframind2.s3.amazonaws.com (cf-template-inframind2.s3.amazonaws.com)|52.217.37.12|:443... connected.
+<pre>--2019-10-31 06:36:04--  https://s3.amazonaws.com/baywheels-data/2017-fordgobike-tripdata.csv
+Resolving s3.amazonaws.com (s3.amazonaws.com)... 52.216.10.29
+Connecting to s3.amazonaws.com (s3.amazonaws.com)|52.216.10.29|:443... connected.
 HTTP request sent, awaiting response... 200 OK
-Length: 115453978 (110M) [text/csv]
-Saving to: ‘fordgo_master_clean.csv.4’
+Length: 117958114 (112M) [text/csv]
+Saving to: ‘2017-fordgobike-tripdata.csv’
 
-fordgo_master_clean 100%[===================&gt;] 110.11M  15.6MB/s    in 8.2s    
+2017-fordgobike-tri 100%[===================&gt;] 112.49M  29.3MB/s    in 4.2s    
 
-2019-10-30 17:53:37 (13.4 MB/s) - ‘fordgo_master_clean.csv.4’ saved [115453978/115453978]
+2019-10-31 06:36:08 (26.8 MB/s) - ‘2017-fordgobike-tripdata.csv’ saved [117958114/117958114]
 
 </pre>
 </div>
@@ -13194,7 +13195,7 @@ fordgo_master_clean 100%[===================&gt;] 110.11M  15.6MB/s    in 8.2s
 <div class="prompt input_prompt">In&nbsp;[0]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;fordgo_master_clean.csv&#39;</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;2017-fordgobike-tripdata.csv&#39;</span><span class="p">)</span>
 </pre></div>
 
     </div>
@@ -13258,16 +13259,14 @@ fordgo_master_clean 100%[===================&gt;] 110.11M  15.6MB/s    in 8.2s
       <th>user_type</th>
       <th>member_birth_year</th>
       <th>member_gender</th>
-      <th>member_age</th>
-      <th>distance_km</th>
     </tr>
   </thead>
   <tbody>
     <tr>
       <th>0</th>
       <td>80110</td>
-      <td>2017-12-31 16:57:39.654</td>
-      <td>2018-01-01 15:12:50.245</td>
+      <td>2017-12-31 16:57:39.6540</td>
+      <td>2018-01-01 15:12:50.2450</td>
       <td>74</td>
       <td>Laguna St at Hayes St</td>
       <td>37.776435</td>
@@ -13280,14 +13279,12 @@ fordgo_master_clean 100%[===================&gt;] 110.11M  15.6MB/s    in 8.2s
       <td>Customer</td>
       <td>1987.0</td>
       <td>Male</td>
-      <td>32.0</td>
-      <td>0.942931</td>
     </tr>
     <tr>
       <th>1</th>
       <td>78800</td>
-      <td>2017-12-31 15:56:34.842</td>
-      <td>2018-01-01 13:49:55.617</td>
+      <td>2017-12-31 15:56:34.8420</td>
+      <td>2018-01-01 13:49:55.6170</td>
       <td>284</td>
       <td>Yerba Buena Center for the Arts (Howard St at ...</td>
       <td>37.784872</td>
@@ -13300,14 +13297,12 @@ fordgo_master_clean 100%[===================&gt;] 110.11M  15.6MB/s    in 8.2s
       <td>Customer</td>
       <td>1965.0</td>
       <td>Female</td>
-      <td>54.0</td>
-      <td>3.069727</td>
     </tr>
     <tr>
       <th>2</th>
       <td>45768</td>
-      <td>2017-12-31 22:45:48.411</td>
-      <td>2018-01-01 11:28:36.883</td>
+      <td>2017-12-31 22:45:48.4110</td>
+      <td>2018-01-01 11:28:36.8830</td>
       <td>245</td>
       <td>Downtown Berkeley BART</td>
       <td>37.870348</td>
@@ -13320,14 +13315,12 @@ fordgo_master_clean 100%[===================&gt;] 110.11M  15.6MB/s    in 8.2s
       <td>Customer</td>
       <td>NaN</td>
       <td>NaN</td>
-      <td>NaN</td>
-      <td>0.000000</td>
     </tr>
     <tr>
       <th>3</th>
       <td>62172</td>
-      <td>2017-12-31 17:31:10.636</td>
-      <td>2018-01-01 10:47:23.531</td>
+      <td>2017-12-31 17:31:10.6360</td>
+      <td>2018-01-01 10:47:23.5310</td>
       <td>60</td>
       <td>8th St at Ringold St</td>
       <td>37.774520</td>
@@ -13340,14 +13333,12 @@ fordgo_master_clean 100%[===================&gt;] 110.11M  15.6MB/s    in 8.2s
       <td>Customer</td>
       <td>NaN</td>
       <td>NaN</td>
-      <td>NaN</td>
-      <td>1.046622</td>
     </tr>
     <tr>
       <th>4</th>
       <td>43603</td>
-      <td>2017-12-31 14:23:14.001</td>
-      <td>2018-01-01 02:29:57.571</td>
+      <td>2017-12-31 14:23:14.0010</td>
+      <td>2018-01-01 02:29:57.5710</td>
       <td>239</td>
       <td>Bancroft Way at Telegraph Ave</td>
       <td>37.868813</td>
@@ -13360,8 +13351,6 @@ fordgo_master_clean 100%[===================&gt;] 110.11M  15.6MB/s    in 8.2s
       <td>Subscriber</td>
       <td>1997.0</td>
       <td>Female</td>
-      <td>22.0</td>
-      <td>0.636339</td>
     </tr>
   </tbody>
 </table>
@@ -13398,7 +13387,7 @@ fordgo_master_clean 100%[===================&gt;] 110.11M  15.6MB/s    in 8.2s
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>(519700, 17)</pre>
+<pre>(519700, 15)</pre>
 </div>
 
 </div>
@@ -13457,8 +13446,6 @@ fordgo_master_clean 100%[===================&gt;] 110.11M  15.6MB/s    in 8.2s
       <th>end_station_longitude</th>
       <th>bike_id</th>
       <th>member_birth_year</th>
-      <th>member_age</th>
-      <th>distance_km</th>
     </tr>
   </thead>
   <tbody>
@@ -13473,8 +13460,6 @@ fordgo_master_clean 100%[===================&gt;] 110.11M  15.6MB/s    in 8.2s
       <td>519700.000000</td>
       <td>519700.000000</td>
       <td>453159.000000</td>
-      <td>453159.000000</td>
-      <td>519700.000000</td>
     </tr>
     <tr>
       <th>mean</th>
@@ -13487,8 +13472,6 @@ fordgo_master_clean 100%[===================&gt;] 110.11M  15.6MB/s    in 8.2s
       <td>-122.363236</td>
       <td>1672.533079</td>
       <td>1980.404787</td>
-      <td>38.595213</td>
-      <td>1.587077</td>
     </tr>
     <tr>
       <th>std</th>
@@ -13501,8 +13484,6 @@ fordgo_master_clean 100%[===================&gt;] 110.11M  15.6MB/s    in 8.2s
       <td>0.105122</td>
       <td>971.356959</td>
       <td>10.513488</td>
-      <td>10.513488</td>
-      <td>1.010391</td>
     </tr>
     <tr>
       <th>min</th>
@@ -13515,8 +13496,6 @@ fordgo_master_clean 100%[===================&gt;] 110.11M  15.6MB/s    in 8.2s
       <td>-122.444293</td>
       <td>10.000000</td>
       <td>1886.000000</td>
-      <td>20.000000</td>
-      <td>0.000000</td>
     </tr>
     <tr>
       <th>25%</th>
@@ -13529,8 +13508,6 @@ fordgo_master_clean 100%[===================&gt;] 110.11M  15.6MB/s    in 8.2s
       <td>-122.410345</td>
       <td>787.000000</td>
       <td>1974.000000</td>
-      <td>31.000000</td>
-      <td>0.899642</td>
     </tr>
     <tr>
       <th>50%</th>
@@ -13543,8 +13520,6 @@ fordgo_master_clean 100%[===================&gt;] 110.11M  15.6MB/s    in 8.2s
       <td>-122.398525</td>
       <td>1728.500000</td>
       <td>1983.000000</td>
-      <td>36.000000</td>
-      <td>1.400244</td>
     </tr>
     <tr>
       <th>75%</th>
@@ -13557,8 +13532,6 @@ fordgo_master_clean 100%[===================&gt;] 110.11M  15.6MB/s    in 8.2s
       <td>-122.391034</td>
       <td>2520.000000</td>
       <td>1988.000000</td>
-      <td>45.000000</td>
-      <td>2.072494</td>
     </tr>
     <tr>
       <th>max</th>
@@ -13571,8 +13544,6 @@ fordgo_master_clean 100%[===================&gt;] 110.11M  15.6MB/s    in 8.2s
       <td>-121.874119</td>
       <td>3733.000000</td>
       <td>1999.000000</td>
-      <td>133.000000</td>
-      <td>68.186787</td>
     </tr>
   </tbody>
 </table>
@@ -13641,210 +13612,188 @@ fordgo_master_clean 100%[===================&gt;] 110.11M  15.6MB/s    in 8.2s
       <th>user_type</th>
       <th>member_birth_year</th>
       <th>member_gender</th>
-      <th>member_age</th>
-      <th>distance_km</th>
     </tr>
   </thead>
   <tbody>
     <tr>
-      <th>90687</th>
-      <td>688</td>
-      <td>2017-11-30 06:53:55.078</td>
-      <td>2017-11-30 07:05:23.176</td>
-      <td>61</td>
-      <td>Howard St at 8th St</td>
-      <td>37.776513</td>
-      <td>-122.411306</td>
-      <td>24</td>
-      <td>Spear St at Folsom St</td>
-      <td>37.789677</td>
-      <td>-122.390428</td>
-      <td>2407</td>
+      <th>96492</th>
+      <td>250</td>
+      <td>2017-11-28 17:06:38.6100</td>
+      <td>2017-11-28 17:10:48.7630</td>
+      <td>59</td>
+      <td>S Van Ness Ave at Market St</td>
+      <td>37.774814</td>
+      <td>-122.418954</td>
+      <td>97</td>
+      <td>14th St at Mission St</td>
+      <td>37.768265</td>
+      <td>-122.420110</td>
+      <td>3008</td>
       <td>Subscriber</td>
-      <td>1986.0</td>
+      <td>1975.0</td>
       <td>Male</td>
-      <td>33.0</td>
-      <td>2.347119</td>
     </tr>
     <tr>
-      <th>23588</th>
-      <td>543</td>
-      <td>2017-12-19 09:09:11.454</td>
-      <td>2017-12-19 09:18:14.688</td>
-      <td>58</td>
-      <td>Market St at 10th St</td>
-      <td>37.776619</td>
-      <td>-122.417385</td>
-      <td>21</td>
-      <td>Montgomery St BART Station (Market St at 2nd St)</td>
-      <td>37.789625</td>
-      <td>-122.400811</td>
-      <td>176</td>
-      <td>Subscriber</td>
-      <td>1985.0</td>
-      <td>Male</td>
-      <td>34.0</td>
-      <td>2.052596</td>
-    </tr>
-    <tr>
-      <th>461659</th>
-      <td>1260</td>
-      <td>2017-08-05 17:17:20.018</td>
-      <td>2017-08-05 17:38:20.967</td>
-      <td>180</td>
-      <td>Telegraph Ave at 23rd St</td>
-      <td>37.812678</td>
-      <td>-122.268773</td>
-      <td>211</td>
-      <td>Broadway at 40th St</td>
-      <td>37.827757</td>
-      <td>-122.256716</td>
-      <td>1534</td>
-      <td>Customer</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>1.983165</td>
-    </tr>
-    <tr>
-      <th>346613</th>
-      <td>377</td>
-      <td>2017-09-14 18:41:06.423</td>
-      <td>2017-09-14 18:47:24.295</td>
-      <td>66</td>
-      <td>3rd St at Townsend St</td>
-      <td>37.778742</td>
-      <td>-122.392741</td>
+      <th>401366</th>
+      <td>249</td>
+      <td>2017-08-28 16:56:52.4640</td>
+      <td>2017-08-28 17:01:01.7900</td>
+      <td>50</td>
+      <td>2nd St at Townsend St - Coming Soon</td>
+      <td>37.780526</td>
+      <td>-122.390288</td>
       <td>27</td>
       <td>Beale St at Harrison St</td>
       <td>37.788059</td>
       <td>-122.391865</td>
-      <td>2945</td>
+      <td>2815</td>
       <td>Subscriber</td>
       <td>1982.0</td>
       <td>Male</td>
-      <td>37.0</td>
-      <td>1.038936</td>
     </tr>
     <tr>
-      <th>192000</th>
-      <td>579</td>
-      <td>2017-10-28 23:23:47.436</td>
-      <td>2017-10-28 23:33:26.946</td>
-      <td>22</td>
-      <td>Howard St at Beale St</td>
-      <td>37.789756</td>
-      <td>-122.394643</td>
-      <td>30</td>
-      <td>San Francisco Caltrain (Townsend St at 4th St)</td>
-      <td>37.776598</td>
-      <td>-122.395282</td>
-      <td>403</td>
-      <td>Subscriber</td>
-      <td>1985.0</td>
-      <td>Female</td>
-      <td>34.0</td>
-      <td>1.464180</td>
-    </tr>
-    <tr>
-      <th>54167</th>
-      <td>448</td>
-      <td>2017-12-10 15:04:41.319</td>
-      <td>2017-12-10 15:12:09.902</td>
-      <td>93</td>
-      <td>4th St at Mission Bay Blvd S</td>
-      <td>37.770407</td>
-      <td>-122.391198</td>
-      <td>126</td>
-      <td>Esprit Park</td>
-      <td>37.761634</td>
-      <td>-122.390648</td>
-      <td>2136</td>
-      <td>Subscriber</td>
-      <td>1989.0</td>
-      <td>Male</td>
-      <td>30.0</td>
-      <td>0.976725</td>
-    </tr>
-    <tr>
-      <th>117399</th>
-      <td>169</td>
-      <td>2017-11-20 12:11:15.074</td>
-      <td>2017-11-20 12:14:04.188</td>
-      <td>3</td>
-      <td>Powell St BART Station (Market St at 4th St)</td>
-      <td>37.786375</td>
-      <td>-122.404904</td>
-      <td>21</td>
-      <td>Montgomery St BART Station (Market St at 2nd St)</td>
-      <td>37.789625</td>
-      <td>-122.400811</td>
-      <td>1562</td>
-      <td>Subscriber</td>
-      <td>1984.0</td>
-      <td>Male</td>
-      <td>35.0</td>
-      <td>0.509899</td>
-    </tr>
-    <tr>
-      <th>198565</th>
-      <td>1648</td>
-      <td>2017-10-26 22:25:33.371</td>
-      <td>2017-10-26 22:53:01.787</td>
-      <td>16</td>
-      <td>Steuart St at Market St</td>
-      <td>37.794130</td>
-      <td>-122.394430</td>
-      <td>16</td>
-      <td>Steuart St at Market St</td>
-      <td>37.794130</td>
-      <td>-122.394430</td>
-      <td>2377</td>
-      <td>Customer</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>0.000000</td>
-    </tr>
-    <tr>
-      <th>329179</th>
-      <td>1216</td>
-      <td>2017-09-20 07:40:11.490</td>
-      <td>2017-09-20 08:00:27.610</td>
-      <td>324</td>
-      <td>Union Square (Powell St at Post St)</td>
-      <td>37.788300</td>
-      <td>-122.408531</td>
+      <th>295711</th>
+      <td>898</td>
+      <td>2017-09-29 11:32:11.4170</td>
+      <td>2017-09-29 11:47:09.4290</td>
+      <td>14</td>
+      <td>Clay St at Battery St</td>
+      <td>37.795001</td>
+      <td>-122.399970</td>
       <td>6</td>
       <td>The Embarcadero at Sansome St</td>
       <td>37.804770</td>
       <td>-122.403234</td>
-      <td>1717</td>
+      <td>1110</td>
       <td>Customer</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>1.889592</td>
+      <td>1972.0</td>
+      <td>Male</td>
     </tr>
     <tr>
-      <th>219957</th>
-      <td>970</td>
-      <td>2017-10-21 14:37:02.889</td>
-      <td>2017-10-21 14:53:13.326</td>
-      <td>121</td>
-      <td>Mission Playground</td>
-      <td>37.759210</td>
-      <td>-122.421339</td>
-      <td>105</td>
-      <td>16th St at Prosper St</td>
-      <td>37.764285</td>
-      <td>-122.431804</td>
-      <td>3025</td>
+      <th>373146</th>
+      <td>333</td>
+      <td>2017-09-06 21:25:36.2540</td>
+      <td>2017-09-06 21:31:09.2920</td>
+      <td>86</td>
+      <td>Market St at Dolores St</td>
+      <td>37.769305</td>
+      <td>-122.426826</td>
+      <td>112</td>
+      <td>Harrison St at 17th St</td>
+      <td>37.763847</td>
+      <td>-122.413004</td>
+      <td>2125</td>
+      <td>Subscriber</td>
+      <td>1983.0</td>
+      <td>Male</td>
+    </tr>
+    <tr>
+      <th>442792</th>
+      <td>7330</td>
+      <td>2017-08-13 15:19:25.0290</td>
+      <td>2017-08-13 17:21:35.5720</td>
+      <td>8</td>
+      <td>The Embarcadero at Vallejo St</td>
+      <td>37.799953</td>
+      <td>-122.398525</td>
+      <td>6</td>
+      <td>The Embarcadero at Sansome St</td>
+      <td>37.804770</td>
+      <td>-122.403234</td>
+      <td>2725</td>
       <td>Customer</td>
       <td>NaN</td>
       <td>NaN</td>
+    </tr>
+    <tr>
+      <th>30128</th>
+      <td>1176</td>
+      <td>2017-12-17 10:04:44.2600</td>
+      <td>2017-12-17 10:24:20.7640</td>
+      <td>5</td>
+      <td>Powell St BART Station (Market St at 5th St)</td>
+      <td>37.783899</td>
+      <td>-122.408445</td>
+      <td>6</td>
+      <td>The Embarcadero at Sansome St</td>
+      <td>37.804770</td>
+      <td>-122.403234</td>
+      <td>704</td>
+      <td>Customer</td>
       <td>NaN</td>
-      <td>1.079217</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>91483</th>
+      <td>418</td>
+      <td>2017-11-29 18:45:50.0740</td>
+      <td>2017-11-29 18:52:48.1590</td>
+      <td>243</td>
+      <td>Bancroft Way at College Ave</td>
+      <td>37.869360</td>
+      <td>-122.254337</td>
+      <td>245</td>
+      <td>Downtown Berkeley BART</td>
+      <td>37.870348</td>
+      <td>-122.267764</td>
+      <td>1545</td>
+      <td>Subscriber</td>
+      <td>1991.0</td>
+      <td>Male</td>
+    </tr>
+    <tr>
+      <th>325879</th>
+      <td>655</td>
+      <td>2017-09-20 20:11:54.3850</td>
+      <td>2017-09-20 20:22:49.7970</td>
+      <td>21</td>
+      <td>Montgomery St BART Station (Market St at 2nd St)</td>
+      <td>37.789625</td>
+      <td>-122.400811</td>
+      <td>58</td>
+      <td>Market St at 10th St</td>
+      <td>37.776619</td>
+      <td>-122.417385</td>
+      <td>3066</td>
+      <td>Subscriber</td>
+      <td>1981.0</td>
+      <td>Male</td>
+    </tr>
+    <tr>
+      <th>491712</th>
+      <td>467</td>
+      <td>2017-07-21 16:47:46.5900</td>
+      <td>2017-07-21 16:55:34.0430</td>
+      <td>9</td>
+      <td>Broadway at Battery St</td>
+      <td>37.798572</td>
+      <td>-122.400869</td>
+      <td>22</td>
+      <td>Howard St at Beale St</td>
+      <td>37.789756</td>
+      <td>-122.394643</td>
+      <td>2177</td>
+      <td>Subscriber</td>
+      <td>1959.0</td>
+      <td>Male</td>
+    </tr>
+    <tr>
+      <th>68451</th>
+      <td>864</td>
+      <td>2017-12-06 10:18:35.3260</td>
+      <td>2017-12-06 10:32:59.7290</td>
+      <td>25</td>
+      <td>Howard St at 2nd St</td>
+      <td>37.787522</td>
+      <td>-122.397405</td>
+      <td>5</td>
+      <td>Powell St BART Station (Market St at 5th St)</td>
+      <td>37.783899</td>
+      <td>-122.408445</td>
+      <td>2262</td>
+      <td>Subscriber</td>
+      <td>1971.0</td>
+      <td>Male</td>
     </tr>
   </tbody>
 </table>
@@ -13881,7 +13830,7 @@ fordgo_master_clean 100%[===================&gt;] 110.11M  15.6MB/s    in 8.2s
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>&lt;class &#39;pandas.core.frame.DataFrame&#39;&gt;
 RangeIndex: 519700 entries, 0 to 519699
-Data columns (total 17 columns):
+Data columns (total 15 columns):
 duration_sec               519700 non-null int64
 start_time                 519700 non-null object
 end_time                   519700 non-null object
@@ -13897,10 +13846,8 @@ bike_id                    519700 non-null int64
 user_type                  519700 non-null object
 member_birth_year          453159 non-null float64
 member_gender              453238 non-null object
-member_age                 453159 non-null float64
-distance_km                519700 non-null float64
-dtypes: float64(7), int64(4), object(6)
-memory usage: 67.4+ MB
+dtypes: float64(5), int64(4), object(6)
+memory usage: 59.5+ MB
 </pre>
 </div>
 </div>
@@ -14019,7 +13966,7 @@ memory usage: 67.4+ MB
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>&lt;class &#39;pandas.core.frame.DataFrame&#39;&gt;
 RangeIndex: 519700 entries, 0 to 519699
-Data columns (total 17 columns):
+Data columns (total 15 columns):
 duration_sec               519700 non-null int64
 start_time                 519700 non-null datetime64[ns]
 end_time                   519700 non-null datetime64[ns]
@@ -14035,10 +13982,8 @@ bike_id                    519700 non-null object
 user_type                  519700 non-null category
 member_birth_year          453159 non-null float64
 member_gender              453238 non-null category
-member_age                 453159 non-null float64
-distance_km                519700 non-null float64
-dtypes: category(2), datetime64[ns](2), float64(7), int64(1), object(5)
-memory usage: 60.5+ MB
+dtypes: category(2), datetime64[ns](2), float64(5), int64(1), object(5)
+memory usage: 52.5+ MB
 </pre>
 </div>
 </div>
@@ -14118,7 +14063,6 @@ memory usage: 60.5+ MB
       <th>member_birth_year</th>
       <th>member_gender</th>
       <th>member_age</th>
-      <th>distance_km</th>
     </tr>
   </thead>
   <tbody>
@@ -14140,7 +14084,6 @@ memory usage: 60.5+ MB
       <td>1987.0</td>
       <td>Male</td>
       <td>32.0</td>
-      <td>0.942931</td>
     </tr>
     <tr>
       <th>1</th>
@@ -14160,7 +14103,6 @@ memory usage: 60.5+ MB
       <td>1965.0</td>
       <td>Female</td>
       <td>54.0</td>
-      <td>3.069727</td>
     </tr>
     <tr>
       <th>2</th>
@@ -14180,7 +14122,6 @@ memory usage: 60.5+ MB
       <td>NaN</td>
       <td>NaN</td>
       <td>NaN</td>
-      <td>0.000000</td>
     </tr>
     <tr>
       <th>3</th>
@@ -14200,7 +14141,6 @@ memory usage: 60.5+ MB
       <td>NaN</td>
       <td>NaN</td>
       <td>NaN</td>
-      <td>1.046622</td>
     </tr>
     <tr>
       <th>4</th>
@@ -14220,7 +14160,6 @@ memory usage: 60.5+ MB
       <td>1997.0</td>
       <td>Female</td>
       <td>22.0</td>
-      <td>0.636339</td>
     </tr>
   </tbody>
 </table>
@@ -14365,109 +14304,103 @@ Name: member_age, dtype: float64</pre>
       <th>member_birth_year</th>
       <th>member_gender</th>
       <th>member_age</th>
-      <th>distance_km</th>
     </tr>
   </thead>
   <tbody>
     <tr>
-      <th>7737</th>
-      <td>1117</td>
-      <td>2017-12-27 12:05:36.672</td>
-      <td>2017-12-27 12:24:14.010</td>
-      <td>11</td>
-      <td>Davis St at Jackson St</td>
-      <td>37.797280</td>
-      <td>-122.398436</td>
-      <td>6</td>
-      <td>The Embarcadero at Sansome St</td>
-      <td>37.804770</td>
-      <td>-122.403234</td>
-      <td>2334</td>
-      <td>Customer</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>0.933459</td>
-    </tr>
-    <tr>
-      <th>427986</th>
-      <td>486</td>
-      <td>2017-08-18 18:11:12.133</td>
-      <td>2017-08-18 18:19:19.124</td>
-      <td>8</td>
-      <td>The Embarcadero at Vallejo St</td>
-      <td>37.799953</td>
-      <td>-122.398525</td>
-      <td>11</td>
-      <td>Davis St at Jackson St</td>
-      <td>37.797280</td>
-      <td>-122.398436</td>
-      <td>1096</td>
-      <td>Customer</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>0.297327</td>
-    </tr>
-    <tr>
-      <th>207324</th>
-      <td>629</td>
-      <td>2017-10-25 07:14:08.785</td>
-      <td>2017-10-25 07:24:38.439</td>
-      <td>134</td>
-      <td>Valencia St at 24th St</td>
-      <td>37.752428</td>
-      <td>-122.420628</td>
-      <td>74</td>
-      <td>Laguna St at Hayes St</td>
-      <td>37.776435</td>
-      <td>-122.426244</td>
-      <td>1848</td>
+      <th>121016</th>
+      <td>1095</td>
+      <td>2017-11-18 22:03:47.204</td>
+      <td>2017-11-18 22:22:02.689</td>
+      <td>160</td>
+      <td>West Oakland BART Station</td>
+      <td>37.805318</td>
+      <td>-122.294837</td>
+      <td>216</td>
+      <td>San Pablo Ave at 27th St</td>
+      <td>37.817827</td>
+      <td>-122.275698</td>
+      <td>1560</td>
       <td>Subscriber</td>
-      <td>1975.0</td>
+      <td>1971.0</td>
+      <td>Female</td>
+      <td>48.0</td>
+    </tr>
+    <tr>
+      <th>127993</th>
+      <td>350</td>
+      <td>2017-11-16 16:13:38.161</td>
+      <td>2017-11-16 16:19:28.458</td>
+      <td>13</td>
+      <td>Commercial St at Montgomery St</td>
+      <td>37.794231</td>
+      <td>-122.402923</td>
+      <td>15</td>
+      <td>San Francisco Ferry Building (Harry Bridges Pl...</td>
+      <td>37.795392</td>
+      <td>-122.394203</td>
+      <td>503</td>
+      <td>Subscriber</td>
+      <td>1972.0</td>
       <td>Male</td>
-      <td>44.0</td>
-      <td>2.714726</td>
+      <td>47.0</td>
     </tr>
     <tr>
-      <th>233495</th>
-      <td>700</td>
-      <td>2017-10-17 17:35:33.648</td>
-      <td>2017-10-17 17:47:14.305</td>
-      <td>102</td>
-      <td>Irwin St at 8th St</td>
-      <td>37.766883</td>
-      <td>-122.399579</td>
-      <td>77</td>
-      <td>11th St at Natoma St</td>
-      <td>37.773507</td>
-      <td>-122.416040</td>
-      <td>3180</td>
-      <td>Subscriber</td>
-      <td>1968.0</td>
-      <td>Female</td>
-      <td>51.0</td>
-      <td>1.623547</td>
+      <th>29330</th>
+      <td>3541</td>
+      <td>2017-12-17 14:27:27.227</td>
+      <td>2017-12-17 15:26:28.623</td>
+      <td>156</td>
+      <td>Stanford Ave at Hollis St</td>
+      <td>37.838443</td>
+      <td>-122.288665</td>
+      <td>148</td>
+      <td>Horton St at 40th St</td>
+      <td>37.829705</td>
+      <td>-122.287610</td>
+      <td>3430</td>
+      <td>Customer</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
     </tr>
     <tr>
-      <th>374587</th>
-      <td>728</td>
-      <td>2017-09-06 16:43:54.154</td>
-      <td>2017-09-06 16:56:03.119</td>
-      <td>43</td>
-      <td>San Francisco Public Library (Grove St at Hyde...</td>
-      <td>37.778768</td>
-      <td>-122.415929</td>
-      <td>86</td>
-      <td>Market St at Dolores St</td>
-      <td>37.769305</td>
-      <td>-122.426826</td>
-      <td>2138</td>
+      <th>254360</th>
+      <td>943</td>
+      <td>2017-10-11 10:00:08.686</td>
+      <td>2017-10-11 10:15:51.692</td>
+      <td>99</td>
+      <td>Folsom St at 15th St</td>
+      <td>37.767037</td>
+      <td>-122.415443</td>
+      <td>48</td>
+      <td>2nd St at S Park St</td>
+      <td>37.782411</td>
+      <td>-122.392706</td>
+      <td>2425</td>
       <td>Subscriber</td>
-      <td>1990.0</td>
-      <td>Female</td>
-      <td>29.0</td>
-      <td>1.422767</td>
+      <td>1949.0</td>
+      <td>Male</td>
+      <td>70.0</td>
+    </tr>
+    <tr>
+      <th>302712</th>
+      <td>95</td>
+      <td>2017-09-27 17:30:07.479</td>
+      <td>2017-09-27 17:31:43.266</td>
+      <td>59</td>
+      <td>S Van Ness Ave at Market St</td>
+      <td>37.774814</td>
+      <td>-122.418954</td>
+      <td>58</td>
+      <td>Market St at 10th St</td>
+      <td>37.776619</td>
+      <td>-122.417385</td>
+      <td>2582</td>
+      <td>Subscriber</td>
+      <td>1980.0</td>
+      <td>Male</td>
+      <td>39.0</td>
     </tr>
   </tbody>
 </table>
@@ -14594,104 +14527,104 @@ Name: member_age, dtype: float64</pre>
   </thead>
   <tbody>
     <tr>
-      <th>151156</th>
-      <td>1937</td>
-      <td>2017-11-09 12:08:38.035</td>
-      <td>2017-11-09 12:40:55.095</td>
-      <td>6</td>
-      <td>The Embarcadero at Sansome St</td>
-      <td>37.804770</td>
-      <td>-122.403234</td>
-      <td>6</td>
-      <td>The Embarcadero at Sansome St</td>
-      <td>37.804770</td>
-      <td>-122.403234</td>
-      <td>1952</td>
-      <td>Subscriber</td>
-      <td>1977.0</td>
-      <td>Male</td>
-      <td>42.0</td>
-      <td>0.000000</td>
-    </tr>
-    <tr>
-      <th>179743</th>
-      <td>900</td>
-      <td>2017-11-01 15:57:10.753</td>
-      <td>2017-11-01 16:12:10.879</td>
-      <td>18</td>
-      <td>Telegraph Ave at Alcatraz Ave</td>
-      <td>37.850222</td>
-      <td>-122.260172</td>
-      <td>157</td>
-      <td>65th St at Hollis St</td>
-      <td>37.846784</td>
-      <td>-122.291376</td>
-      <td>192</td>
-      <td>Customer</td>
-      <td>1991.0</td>
-      <td>Female</td>
-      <td>28.0</td>
-      <td>2.766334</td>
-    </tr>
-    <tr>
-      <th>116960</th>
-      <td>195</td>
-      <td>2017-11-20 14:33:49.772</td>
-      <td>2017-11-20 14:37:05.468</td>
-      <td>176</td>
-      <td>MacArthur BART Station</td>
-      <td>37.828410</td>
-      <td>-122.266315</td>
-      <td>192</td>
-      <td>37th St at West St</td>
-      <td>37.826696</td>
-      <td>-122.271795</td>
-      <td>2780</td>
-      <td>Subscriber</td>
-      <td>1980.0</td>
-      <td>Male</td>
-      <td>39.0</td>
-      <td>0.517724</td>
-    </tr>
-    <tr>
-      <th>303085</th>
-      <td>232</td>
-      <td>2017-09-27 16:33:38.074</td>
-      <td>2017-09-27 16:37:30.458</td>
-      <td>6</td>
-      <td>The Embarcadero at Sansome St</td>
-      <td>37.804770</td>
-      <td>-122.403234</td>
-      <td>16</td>
-      <td>Steuart St at Market St</td>
-      <td>37.794130</td>
-      <td>-122.394430</td>
-      <td>1463</td>
+      <th>226360</th>
+      <td>368</td>
+      <td>2017-10-19 15:52:33.734</td>
+      <td>2017-10-19 15:58:42.039</td>
+      <td>40</td>
+      <td>Laguna St at McAllister St</td>
+      <td>37.779208</td>
+      <td>-122.426829</td>
+      <td>41</td>
+      <td>Golden Gate Ave at Polk St</td>
+      <td>37.781270</td>
+      <td>-122.418740</td>
+      <td>1719</td>
       <td>Subscriber</td>
       <td>1974.0</td>
       <td>Male</td>
       <td>45.0</td>
-      <td>1.413548</td>
+      <td>0.746928</td>
     </tr>
     <tr>
-      <th>109953</th>
-      <td>293</td>
-      <td>2017-11-22 12:09:15.373</td>
-      <td>2017-11-22 12:14:08.786</td>
-      <td>3</td>
-      <td>Powell St BART Station (Market St at 4th St)</td>
-      <td>37.786375</td>
-      <td>-122.404904</td>
-      <td>25</td>
-      <td>Howard St at 2nd St</td>
-      <td>37.787522</td>
-      <td>-122.397405</td>
-      <td>2697</td>
+      <th>39875</th>
+      <td>718</td>
+      <td>2017-12-14 08:22:40.099</td>
+      <td>2017-12-14 08:34:38.610</td>
+      <td>113</td>
+      <td>Franklin Square</td>
+      <td>37.764555</td>
+      <td>-122.410345</td>
+      <td>58</td>
+      <td>Market St at 10th St</td>
+      <td>37.776619</td>
+      <td>-122.417385</td>
+      <td>896</td>
       <td>Subscriber</td>
-      <td>1983.0</td>
+      <td>1971.0</td>
       <td>Female</td>
-      <td>36.0</td>
-      <td>0.671245</td>
+      <td>48.0</td>
+      <td>1.477296</td>
+    </tr>
+    <tr>
+      <th>330050</th>
+      <td>180</td>
+      <td>2017-09-19 19:18:09.236</td>
+      <td>2017-09-19 19:21:09.738</td>
+      <td>84</td>
+      <td>Duboce Park</td>
+      <td>37.769201</td>
+      <td>-122.433812</td>
+      <td>119</td>
+      <td>18th St at Noe St</td>
+      <td>37.761047</td>
+      <td>-122.432642</td>
+      <td>3047</td>
+      <td>Subscriber</td>
+      <td>1970.0</td>
+      <td>Male</td>
+      <td>49.0</td>
+      <td>0.912433</td>
+    </tr>
+    <tr>
+      <th>290426</th>
+      <td>4736</td>
+      <td>2017-10-01 11:29:35.485</td>
+      <td>2017-10-01 12:48:32.077</td>
+      <td>53</td>
+      <td>Grove St at Divisadero</td>
+      <td>37.775946</td>
+      <td>-122.437777</td>
+      <td>105</td>
+      <td>16th St at Prosper St</td>
+      <td>37.764285</td>
+      <td>-122.431804</td>
+      <td>2929</td>
+      <td>Customer</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>1.398909</td>
+    </tr>
+    <tr>
+      <th>413021</th>
+      <td>850</td>
+      <td>2017-08-24 09:16:58.556</td>
+      <td>2017-08-24 09:31:09.368</td>
+      <td>97</td>
+      <td>14th St at Mission St</td>
+      <td>37.768265</td>
+      <td>-122.420110</td>
+      <td>66</td>
+      <td>3rd St at Townsend St</td>
+      <td>37.778742</td>
+      <td>-122.392741</td>
+      <td>2512</td>
+      <td>Subscriber</td>
+      <td>1954.0</td>
+      <td>Male</td>
+      <td>65.0</td>
+      <td>2.672820</td>
     </tr>
   </tbody>
 </table>
@@ -17454,7 +17387,7 @@ SVIB/H9SbiJ2oGCJUQAAAABJRU5ErkJggg==
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>We plot member, gender, member's age. The age group of people belongs to 25 to 40 and male traveller is more than female and other traveller.</p>
+<p>We plot graphs between user type, duration and members age. The age group of people belongs to 25 to 40 and male traveller is more than female and other traveller. also subscriber has booked much more ride than a normal customer</p>
 
 </div>
 </div>
